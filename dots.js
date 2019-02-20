@@ -111,6 +111,21 @@
 
     };
 
+    class Queue {
+
+        constructor() {
+
+            this._num = 0;
+
+            this._arr = settings.gamers;
+
+        }
+
+     
+
+
+
+    };
 
 
 
