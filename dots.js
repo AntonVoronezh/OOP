@@ -72,6 +72,26 @@
     };
 
 
+    class Dot {
+
+        constructor(argElem, argObjForElems, argQueue) {
+
+            console.log('Dot');
+
+            this._elem = argElem;
+
+            this._queue = argQueue;
+
+
+
+        }
+
+
+
+
+
+
+    };
 
 
 
