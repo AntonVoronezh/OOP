@@ -169,6 +169,16 @@
 
         }
 
+        addDot(argElem, argCoordinates) {
+
+            console.log('addDot', argElem, argCoordinates);
+
+            const [col, row] = argCoordinates;
+
+            console.log(String(col), row);
+
+
+        }
 
 
 
