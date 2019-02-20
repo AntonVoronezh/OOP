@@ -92,7 +92,19 @@
 
         }
 
+        _makeColor() {
 
+            if (!this._elem.classList.contains(settings.occupied)) {
+
+                let cl = this._queue.getNextGamer();
+
+                this._elem.classList.add(cl);
+
+                this._elem.classList.add(settings.occupied);
+
+            }
+
+        }
 
 
 
