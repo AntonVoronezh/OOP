@@ -121,7 +121,23 @@
 
         }
 
-     
+        _changeNum() {
+
+            let count = 0;
+
+            for (let key in this._arr) {
+
+                count += 1;
+
+            }
+
+            this._num += 1;
+
+ 
+
+            // console.log('_changeNum', this._num);
+
+        }
 
 
 
