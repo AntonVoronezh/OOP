@@ -82,7 +82,13 @@
 
             this._queue = argQueue;
 
+            this._coordinates = new Revision(this._elem).getCoordinates();
 
+            // console.log('_coordinates', this._coordinates);
+
+            argObjForElems.addDot(this._elem, this._coordinates);
+
+            this._makeColor();
 
         }
 
