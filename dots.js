@@ -133,7 +133,11 @@
 
             this._num += 1;
 
- 
+            if (this._num >= count) {
+
+                this._num = 0;
+
+            }
 
             // console.log('_changeNum', this._num);
 
