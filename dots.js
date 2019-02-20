@@ -216,7 +216,12 @@
 
         }
 
-  
+        getCoordinates() {
+
+            return [this._getCol(), this._getRow()];
+
+        }
+
 
 
 
