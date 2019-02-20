@@ -49,7 +49,20 @@
 
             const queue = new Queue();
 
+            elem.addEventListener('click', (event) => {
 
+                if (event.target.classList.contains(settings.table_class.col)) {
+
+                    // console.log(event.target);
+
+                    new Dot(event.target, allDots, queue);
+
+                    // allDots.addDot(dot);
+                    allDots.getObj();
+
+                }
+
+            });
 
 
 
