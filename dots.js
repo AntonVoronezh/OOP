@@ -143,7 +143,17 @@
 
         }
 
+        getNextGamer() {
 
+            // let num = 0;
+
+            this._changeNum();
+
+            return Object.keys(this._arr)[this._num];
+
+            // console.log('arr', Object.keys(this._arr)[this._num]);
+
+        }
 
     };
 
