@@ -160,6 +160,14 @@
 
     class Dots {
 
+        constructor() {
+
+            console.log('Dots');
+
+            this._objForElems = new Map;
+            // this._objForElems = {};
+
+        }
 
 
 
