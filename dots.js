@@ -187,7 +187,13 @@
                 this._objForElems.set(col, rowMap);
 
 
-            } 
+            } else {
+
+                let map = this._objForElems.get(col);
+
+                map.set(row, argElem);
+
+            }
 
         }
 
