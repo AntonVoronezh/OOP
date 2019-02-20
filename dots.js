@@ -39,6 +39,21 @@
 
         }
 
+        _run() {
+
+            console.log('settings', settings);
+
+            const elem = settings.table;
+
+            const allDots = new Dots();
+
+            const queue = new Queue();
+
+
+
+
+
+        }
 
 
     };
