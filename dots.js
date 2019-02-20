@@ -197,7 +197,11 @@
 
         }
 
+        getObj() {
 
+            console.log('Dots.getObj()', this._objForElems.size, this._objForElems);
+
+        }
 
 
 
