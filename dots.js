@@ -178,6 +178,17 @@
             console.log(String(col), row);
 
 
+            if (!this._objForElems.has(col)) {
+
+                let rowMap = new Map;
+
+                rowMap.set(row, argElem);
+
+                this._objForElems.set(col, rowMap);
+
+
+            } 
+
         }
 
 
