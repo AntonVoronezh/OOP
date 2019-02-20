@@ -240,12 +240,44 @@
 
         }
 
+        _getCol() {
 
+            let result = 0;
+
+            let prev = this._elem.parentElement.previousSibling;
+
+            while (prev) {
+
+                prev = prev.previousSibling;
+
+                result += 1;
+
+            }
+
+            return result;
+
+        }
 
     };
 
 
+    class Html {
+        // row - строка (tr)
+        // col - колонка (td)
 
+        constructor(argParentElem, argRowNum, argColNum) {
+
+            this._parent = argParentElem;
+
+            this._row = argRowNum;
+
+            this._col = argColNum;
+
+        }
+
+      
+
+    };
 
     new Game(settings.dots, settings.row, settings.col);
 
