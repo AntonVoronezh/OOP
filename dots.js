@@ -23,7 +23,28 @@
 
     };
 
+    class Game {
 
+        constructor(argParentElem, argRowNum, argColNum) {
+
+            this._endGame = false;
+
+            this._parent = argParentElem;
+
+            this._row = argRowNum;
+
+            this._col = argColNum;
+
+            const game = new Html(this._parent, this._row, this._col).createField();
+
+            this._run();
+
+        }
+
+
+
+
+    };
 
 
 
