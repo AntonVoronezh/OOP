@@ -243,7 +243,17 @@
 
                 const checkedElem = this._checkNeighbors(realCoord);
 
+                if (checkedElem) {
 
+                    const win = new Win(direction, realCoord, this._gamer, this._argObjForElems);
+
+                    if (win.checkCell()) {
+
+                        game.end(this._gamer);
+
+                    }
+
+                }
 
             }
 
