@@ -196,7 +196,19 @@
 
         }
 
+        _getCell() {
 
+            const realCoordinatsCol = this._col + this._deltaCol;
+
+            const realCoordinatsRow = this._row + this._deltaRow;
+
+            this._col = realCoordinatsCol;
+
+            this._row = realCoordinatsRow;
+
+            return this._objForElems.hasElem(realCoordinatsCol, realCoordinatsRow, this._gamer);
+
+        }
 
     };
 
