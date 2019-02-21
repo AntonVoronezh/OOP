@@ -414,6 +414,22 @@
 
         }
 
+        createField() {
+
+            const table = document.createElement('table');
+
+            table.classList.add(settings.table_class.table);
+
+            const caption = document.createElement('caption');
+
+            table.appendChild(caption);
+
+
+            this._parent.appendChild(table);
+
+            settings.table = document.querySelector('.' + settings.table_class.table);
+
+        }
 
     };
 
