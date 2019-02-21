@@ -361,7 +361,23 @@
 
         }
 
+        _getRow() {
 
+            let result = 0;
+
+            let prev = this._elem.previousSibling;
+
+            while (prev) {
+
+                prev = prev.previousSibling;
+
+                result += 1;
+
+            }
+
+            return result;
+
+        }
 
 
 
