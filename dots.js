@@ -17,7 +17,9 @@
             gamer2: 'gamer2'
 
         },
-        occupied: 'occupied'
+        occupied: 'occupied',
+        win: 'win',
+        win_text: 'Победа'
 
     };
 
@@ -41,33 +43,36 @@
 
         _run() {
 
-            console.log('settings', settings);
-
             const elem = settings.table;
 
             const allDots = new Dots();
 
             const queue = new Queue();
 
-            elem.addEventListener('click', (event) => {
+            elem.addEventListener('click', () => {
 
                 if (event.target.classList.contains(settings.table_class.col)) {
 
-                    // console.log(event.target);
+                    if (!this._endGame) {
 
-                    new Dot(event.target, allDots, queue);
+                        new Dot(event.target, allDots, queue);
 
-                    // allDots.addDot(dot);
-                    allDots.getObj();
-
+                    }
                 }
 
             });
 
-
-
         }
 
+        end(argGamer) {
+
+            this._endGame = true;
+
+            settings.table.firstChild.classList.add(settings.win);
+
+            settings.table.firstChild.innerHTML = settings.win_text + ' ' + argGamer;
+
+        }
 
     };
 
@@ -76,19 +81,19 @@
 
         constructor(argElem, argObjForElems, argQueue) {
 
-            console.log('Dot');
-
             this._elem = argElem;
 
             this._queue = argQueue;
 
             this._coordinates = new Revision(this._elem).getCoordinates();
 
-            // console.log('_coordinates', this._coordinates);
-
             argObjForElems.addDot(this._elem, this._coordinates);
 
-            this._makeColor();
+            const gamer = this._makeColor();
+
+            const neighbors = new Neighbors(this._coordinates, argObjForElems, gamer);
+
+            const allNeighbors = neighbors.getNeighbors();
 
         }
 
@@ -102,12 +107,11 @@
 
                 this._elem.classList.add(settings.occupied);
 
+                return cl;
+
             }
 
         }
-
-
-
 
     };
 
@@ -139,44 +143,157 @@
 
             }
 
-            // console.log('_changeNum', this._num);
-
         }
 
         getNextGamer() {
-
-            // let num = 0;
 
             this._changeNum();
 
             return Object.keys(this._arr)[this._num];
 
-            // console.log('arr', Object.keys(this._arr)[this._num]);
+        }
+
+    };
+
+    class Win {
+
+        constructor(argDirection, argCoord, argGamer, argObjForElems) {
+
+            this._col = argCoord[0];
+
+            this._row = argCoord[1];
+
+            this._deltaCol = argDirection[0];
+
+            this._deltaRow = argDirection[1];
+
+            this._gamer = argGamer;
+
+            this._objForElems = argObjForElems;
+
+            this._result = ['', ''];
+
+
+        }
+
+        checkCell() {
+
+            this._checkOne();
+
+            return this._result.length > 4;
+
+        }
+
+        _checkOne() {
+
+            if (this._getCell()) {
+
+                this._result.push('');
+
+                this._checkOne();
+
+            }
+
+        }
+
+        _getCell() {
+
+            const realCoordinatsCol = this._col + this._deltaCol;
+
+            const realCoordinatsRow = this._row + this._deltaRow;
+
+            this._col = realCoordinatsCol;
+
+            this._row = realCoordinatsRow;
+
+            return this._objForElems.hasElem(realCoordinatsCol, realCoordinatsRow, this._gamer);
 
         }
 
     };
 
 
+    class Neighbors {
+
+        constructor(argCoordinates, argObjForElems, argGamer) {
+
+            this._coordinates = argCoordinates;
+
+            this._gamer = argGamer;
+
+            this._argObjForElems = argObjForElems;
+
+            this._adresses = [
+
+                [-1, 0], [-1, 1], [0, 1], [1, 1],
+
+                [1, 0], [1, -1], [0, -1], [-1, -1]
+
+            ];
+
+        }
+
+        getNeighbors() {
+
+            for (let delta in this._adresses) {
+
+                const direction = this._adresses[delta];
+
+                const realCoord = this._getRealCoordinates(direction);
+
+                const checkedElem = this._checkNeighbors(realCoord);
+
+                if (checkedElem) {
+
+                    const win = new Win(direction, realCoord, this._gamer, this._argObjForElems);
+
+                    if (win.checkCell()) {
+
+                        game.end(this._gamer);
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        _checkNeighbors(argCoordinates) {
+
+            const [col, row] = argCoordinates;
+
+            return this._argObjForElems.hasElem(col, row, this._gamer);
+
+        }
+
+        _getRealCoordinates(argDelta) {
+
+            const [col, row] = this._coordinates;
+
+            const [deltaCol, deltaRow] = argDelta;
+
+            const realCoordinatsCol = col + deltaCol;
+
+            const realCoordinatsRow = row + deltaRow;
+
+            return [realCoordinatsCol, realCoordinatsRow];
+
+        }
+
+    };
+
     class Dots {
 
         constructor() {
 
-            console.log('Dots');
-
             this._objForElems = new Map;
-            // this._objForElems = {};
 
         }
 
         addDot(argElem, argCoordinates) {
 
-            console.log('addDot', argElem, argCoordinates);
-
             const [col, row] = argCoordinates;
-
-            console.log(String(col), row);
-
 
             if (!this._objForElems.has(col)) {
 
@@ -185,7 +302,6 @@
                 rowMap.set(row, argElem);
 
                 this._objForElems.set(col, rowMap);
-
 
             } else {
 
@@ -199,14 +315,37 @@
 
         getObj() {
 
-            console.log('Dots.getObj()', this._objForElems.size, this._objForElems);
+            // console.log('Dots.getObj()', this._objForElems.size, this._objForElems);
 
         }
 
+        hasElem(argCol, argRow, argElem) {
 
+            if (this._objForElems.has(argCol)) {
+
+                let map = this._objForElems.get(argCol);
+
+                if (map.has(argRow)) {
+
+                    let mapRow = map.get(argRow);
+
+                    if (mapRow.classList.contains(argElem)) {
+
+                        return true;
+
+                    }
+
+                }
+
+            } else {
+
+                return false;
+
+            }
+
+        }
 
     };
-
 
     class Revision {
 
@@ -281,6 +420,10 @@
 
             table.classList.add(settings.table_class.table);
 
+            const caption = document.createElement('caption');
+
+            table.appendChild(caption);
+
             for (let i = 0; i < this._row; i += 1) {
 
                 const row = document.createElement('tr');
@@ -307,6 +450,6 @@
 
     };
 
-    new Game(settings.dots, settings.row, settings.col);
+    const game = new Game(settings.dots, settings.row, settings.col);
 
 })();   

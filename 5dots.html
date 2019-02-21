@@ -19,6 +19,7 @@
         }
 
         .table {
+            position: relative;
             border: 1px solid #000000;
         }
         td {
@@ -32,6 +33,23 @@
         }
         .gamer2 {
             background-color: yellow;
+        }
+
+        .win {
+            width: 400px;
+            height: 100px;
+            border: 1px solid #000000;
+            z-index: 100;
+            position: absolute;
+            top: 50%;
+            background-color: red;
+            color: white;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 27px;
         }
 
     </style>
