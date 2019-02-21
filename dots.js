@@ -233,6 +233,21 @@
 
         }
 
+        getNeighbors() {
+
+            for (let delta in this._adresses) {
+
+                const direction = this._adresses[delta];
+
+                const realCoord = this._getRealCoordinates(direction);
+
+                const checkedElem = this._checkNeighbors(realCoord);
+
+
+
+            }
+
+        }
 
 
 
