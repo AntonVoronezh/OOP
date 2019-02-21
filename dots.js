@@ -379,7 +379,23 @@
 
         }
 
+        _getCol() {
 
+            let result = 0;
+
+            let prev = this._elem.parentElement.previousSibling;
+
+            while (prev) {
+
+                prev = prev.previousSibling;
+
+                result += 1;
+
+            }
+
+            return result;
+
+        }
 
     };
 
