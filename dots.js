@@ -176,6 +176,13 @@
 
         }
 
+        checkCell() {
+
+            this._checkOne();
+
+            return this._result.length > 4;
+
+        }
 
 
 
