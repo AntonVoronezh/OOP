@@ -145,7 +145,13 @@
 
         }
 
+        getNextGamer() {
 
+            this._changeNum();
+
+            return Object.keys(this._arr)[this._num];
+
+        }
 
     };
 
