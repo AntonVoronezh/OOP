@@ -291,6 +291,20 @@
 
         }
 
+        addDot(argElem, argCoordinates) {
+
+            const [col, row] = argCoordinates;
+
+
+
+        }
+
+        getObj() {
+
+            // console.log('Dots.getObj()', this._objForElems.size, this._objForElems);
+
+        }
+
 
 
     };
