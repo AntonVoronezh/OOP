@@ -213,6 +213,31 @@
     };
 
 
+    class Neighbors {
+
+        constructor(argCoordinates, argObjForElems, argGamer) {
+
+            this._coordinates = argCoordinates;
+
+            this._gamer = argGamer;
+
+            this._argObjForElems = argObjForElems;
+
+            this._adresses = [
+
+                [-1, 0], [-1, 1], [0, 1], [1, 1],
+
+                [1, 0], [1, -1], [0, -1], [-1, -1]
+
+            ];
+
+        }
+
+
+
+
+
+    };
 
 
 
