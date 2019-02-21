@@ -424,6 +424,23 @@
 
             table.appendChild(caption);
 
+            for (let i = 0; i < this._row; i += 1) {
+
+                const row = document.createElement('tr');
+
+                for (let j = 0; j < this._col; j += 1) {
+
+                    const col = document.createElement('td');
+
+                    col.classList.add(settings.table_class.col);
+
+                    row.appendChild(col);
+
+                };
+
+                table.appendChild(row);
+
+            };
 
             this._parent.appendChild(table);
 
