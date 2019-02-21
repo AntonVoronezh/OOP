@@ -184,6 +184,17 @@
 
         }
 
+        _checkOne() {
+
+            if (this._getCell()) {
+
+                this._result.push('');
+
+                this._checkOne();
+
+            }
+
+        }
 
 
 
