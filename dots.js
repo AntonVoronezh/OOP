@@ -319,7 +319,21 @@
 
         }
 
+        hasElem(argCol, argRow, argElem) {
 
+            if (this._objForElems.has(argCol)) {
+
+                let map = this._objForElems.get(argCol);
+
+
+
+            } else {
+
+                return false;
+
+            }
+
+        }
 
     };
 
