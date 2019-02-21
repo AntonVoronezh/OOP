@@ -400,6 +400,22 @@
     };
 
 
+    class Html {
+        // row - строка (tr)
+        // col - колонка (td)
+
+        constructor(argParentElem, argRowNum, argColNum) {
+
+            this._parent = argParentElem;
+
+            this._row = argRowNum;
+
+            this._col = argColNum;
+
+        }
+
+
+    };
 
     const game = new Game(settings.dots, settings.row, settings.col);
 
