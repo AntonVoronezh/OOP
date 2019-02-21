@@ -64,7 +64,15 @@
 
         }
 
+        end(argGamer) {
 
+            this._endGame = true;
+
+            settings.table.firstChild.classList.add(settings.win);
+
+            settings.table.firstChild.innerHTML = settings.win_text + ' ' + argGamer;
+
+        }
 
     };
 
