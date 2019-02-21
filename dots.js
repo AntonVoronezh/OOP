@@ -155,6 +155,32 @@
 
     };
 
+    class Win {
+
+        constructor(argDirection, argCoord, argGamer, argObjForElems) {
+
+            this._col = argCoord[0];
+
+            this._row = argCoord[1];
+
+            this._deltaCol = argDirection[0];
+
+            this._deltaRow = argDirection[1];
+
+            this._gamer = argGamer;
+
+            this._objForElems = argObjForElems;
+
+            this._result = ['', ''];
+
+
+        }
+
+
+
+
+
+    };
 
 
 
