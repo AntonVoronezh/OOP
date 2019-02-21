@@ -283,6 +283,17 @@
 
     };
 
+    class Dots {
+
+        constructor() {
+
+            this._objForElems = new Map;
+
+        }
+
+
+
+    };
 
 
 
