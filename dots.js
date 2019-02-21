@@ -347,6 +347,20 @@
 
     };
 
+    class Revision {
+
+        constructor(argElem) {
+
+            this._elem = argElem;
+
+        }
+
+
+
+
+
+
+    };
 
 
 
