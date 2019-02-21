@@ -125,6 +125,25 @@
 
         }
 
+        _changeNum() {
+
+            let count = 0;
+
+            for (let key in this._arr) {
+
+                count += 1;
+
+            }
+
+            this._num += 1;
+
+            if (this._num >= count) {
+
+                this._num = 0;
+
+            }
+
+        }
 
 
 
