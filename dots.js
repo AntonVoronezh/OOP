@@ -41,6 +41,20 @@
 
         }
 
+        _run() {
+
+            const elem = settings.table;
+
+            const allDots = new Dots();
+
+            const queue = new Queue();
+
+            elem.addEventListener('click', () => {
+
+
+            });
+
+        }
 
 
 
