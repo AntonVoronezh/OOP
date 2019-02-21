@@ -259,6 +259,13 @@
 
         }
 
+        _checkNeighbors(argCoordinates) {
+
+            const [col, row] = argCoordinates;
+
+            return this._argObjForElems.hasElem(col, row, this._gamer);
+
+        }
 
 
 
