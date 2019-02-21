@@ -295,7 +295,21 @@
 
             const [col, row] = argCoordinates;
 
+            if (!this._objForElems.has(col)) {
 
+                let rowMap = new Map;
+
+                rowMap.set(row, argElem);
+
+                this._objForElems.set(col, rowMap);
+
+            } else {
+
+                let map = this._objForElems.get(col);
+
+                map.set(row, argElem);
+
+            }
 
         }
 
