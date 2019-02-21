@@ -77,6 +77,29 @@
     };
 
 
+    class Dot {
+
+        constructor(argElem, argObjForElems, argQueue) {
+
+            this._elem = argElem;
+
+            this._queue = argQueue;
+
+            this._coordinates = new Revision(this._elem).getCoordinates();
+
+            argObjForElems.addDot(this._elem, this._coordinates);
+
+            const gamer = this._makeColor();
+
+            const neighbors = new Neighbors(this._coordinates, argObjForElems, gamer);
+
+            const allNeighbors = neighbors.getNeighbors();
+
+        }
+
+
+
+    };
 
 
 
