@@ -51,6 +51,14 @@
 
             elem.addEventListener('click', () => {
 
+                if (event.target.classList.contains(settings.table_class.col)) {
+
+                    if (!this._endGame) {
+
+                        new Dot(event.target, allDots, queue);
+
+                    }
+                }
 
             });
 
