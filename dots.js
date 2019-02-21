@@ -325,7 +325,17 @@
 
                 let map = this._objForElems.get(argCol);
 
+                if (map.has(argRow)) {
 
+                    let mapRow = map.get(argRow);
+
+                    if (mapRow.classList.contains(argElem)) {
+
+                        return true;
+
+                    }
+
+                }
 
             } else {
 
