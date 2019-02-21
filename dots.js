@@ -267,7 +267,19 @@
 
         }
 
+        _getRealCoordinates(argDelta) {
 
+            const [col, row] = this._coordinates;
+
+            const [deltaCol, deltaRow] = argDelta;
+
+            const realCoordinatsCol = col + deltaCol;
+
+            const realCoordinatsRow = row + deltaRow;
+
+            return [realCoordinatsCol, realCoordinatsRow];
+
+        }
 
     };
 
