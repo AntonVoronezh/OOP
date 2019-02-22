@@ -12,7 +12,20 @@
     };
 
 
+    class Notes {
 
+        constructor() {
+
+            this._objForElems = new Map;
+
+            this._start();
+
+        }
+
+
+
+
+    }
 
 
 
