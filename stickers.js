@@ -22,7 +22,20 @@
 
         }
 
+        _start() {
 
+            const mapWork = new MapWork(this._objForElems);
+
+            settings.notes.addEventListener('dblclick', () => {
+
+                // console.log('_start', event.pageX, event.pageY);
+
+                const sticker = new Sticker(mapWork, event.pageX, event.pageY);
+
+
+            });
+
+        }
 
 
     }
