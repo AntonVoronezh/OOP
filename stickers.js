@@ -40,7 +40,25 @@
 
     }
 
+    class MapWork {
 
+        constructor(argObjForElems) {
+
+            this._map = argObjForElems;
+
+            this._zIndex = new ZIndex(this._map);
+
+            // this._rightClick();
+
+        }
+
+
+
+
+
+
+
+    }
 
 
 
