@@ -285,7 +285,23 @@
 
         }
 
-    
+        _focus(argElem) {
+
+            argElem.addEventListener('focus', () => {
+
+                settings.stick_map.change(argElem);
+
+
+                // .change;
+
+
+            });
+
+        }
+
+        _blur(argElem) {
+
+
 
 
 
