@@ -315,7 +315,19 @@
         }
 
 
+        _makeArr() {
 
+            return [
+
+                this,
+                this._pageX,
+                this._pageY
+
+
+            ]
+
+
+        }
 
 
     }
