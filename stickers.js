@@ -190,6 +190,17 @@
 
     class Sticker {
 
+        constructor(argMap, argPageX, argPageY) {
+
+            this._map = argMap;
+
+            this._pageX = argPageX;
+
+            this._pageY = argPageY;
+
+            this._add();
+
+        }
 
 
      
