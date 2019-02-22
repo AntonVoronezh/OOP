@@ -101,6 +101,28 @@
 
     class ZIndex {
 
+        constructor(argMap) {
+
+            // this._stickMap = argMap;
+
+            this._map = new Map;
+
+            // this._num = argNum;
+
+            // this._stickMap.set(100000, this._map);
+
+            this._map.set(0, []);
+
+            // this._stickMap.set(100000, this._map);
+
+            settings.stick_map = this;
+
+            // this._arr = this._map.get(0)
+
+            // this._setZIndex();  
+
+
+        }
 
 
 
