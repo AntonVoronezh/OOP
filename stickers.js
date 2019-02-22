@@ -135,7 +135,25 @@
 
         }
 
+        change(argElem) {
 
+            const arr = this._map.get(0);
+
+            let nextNum;
+
+            if (this._getMax(arr) !== Number(argElem.style.zIndex)) {
+
+                nextNum = this._getMax(arr) + 1;
+
+                argElem.style.zIndex = nextNum;
+
+                this.set(nextNum);
+
+            }
+
+            // console.log('change', arr, argElem);
+
+        }
 
 
 
