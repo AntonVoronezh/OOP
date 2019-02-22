@@ -76,6 +76,11 @@
         }
 
 
+        _setInfo(argInfo) {
+
+            this._map.set(this._num(), argInfo);
+
+        }
 
 
 
