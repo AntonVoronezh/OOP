@@ -301,6 +301,19 @@
 
         _blur(argElem) {
 
+            argElem.addEventListener('blur', () => {
+
+                console.log('_blur', argElem.value);
+                
+
+
+                // .change;
+
+
+            });
+
+        }
+
 
 
 
