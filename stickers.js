@@ -52,6 +52,18 @@
 
         }
 
+        console() {
+
+            console.log('_map.size', this._map.size);
+
+            console.log('_num', this._num());
+
+            console.log('_map', this._map);
+
+            console.log('getZIndex', this._zIndex.get());
+
+
+        }
 
 
 
