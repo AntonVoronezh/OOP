@@ -185,6 +185,23 @@
 
     }
 
+    //     let arr = [22,4,7, 0, -9];
+    //    console.log(Math.min(...arr));
+
+    class Sticker {
+
+
+
+     
+     
+
+
+
+    
+
+
+
+    }
 
 
     new Notes();
