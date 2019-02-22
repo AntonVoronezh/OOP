@@ -202,6 +202,16 @@
 
         }
 
+        _add() {
+
+            this._create();
+
+            const arr = this._makeArr();
+
+            this._map.addInfo(arr);
+
+        }
+
 
      
      
