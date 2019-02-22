@@ -65,6 +65,16 @@
 
         }
 
+        addInfo(argInfo) {
+
+            this._setZIndex();
+
+            this._setInfo(argInfo);
+
+            this.console();
+
+        }
+
 
 
 
