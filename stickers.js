@@ -155,6 +155,11 @@
 
         }
 
+        _getMax(argArr) {
+
+            return Math.max(...argArr);
+
+        }
 
 
 
