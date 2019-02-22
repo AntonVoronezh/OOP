@@ -271,7 +271,19 @@
 
         }
 
+        _rightClick(argElem) {
 
+            argElem.addEventListener('contextmenu', () => {
+
+                event.preventDefault();
+
+                // console.log(event.which);
+
+                settings.notes.removeChild(argElem);
+
+            });
+
+        }
 
     
 
