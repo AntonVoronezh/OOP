@@ -244,7 +244,24 @@
 
         }
 
-     
+        _changePosition(argElem) {
+
+            let offsetX, offsetY;
+
+            argElem.addEventListener('dragstart', () => {
+
+                offsetX = event.offsetX;
+
+                offsetY = event.offsetY;
+
+            });
+
+
+
+
+
+
+        }
 
 
 
