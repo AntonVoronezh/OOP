@@ -161,7 +161,27 @@
 
         }
 
+        set(argNum) {
 
+            const arr = this.get();
+
+            let lastNum;
+
+            // console.log('arr.lenght', arr.length);
+
+
+            arr.length === 0 ? lastNum = 0 : lastNum = this._getMax(arr) + 1;
+
+            arr.push(lastNum);
+
+            arr[argNum] = lastNum;
+
+            this._map.delete(0);
+
+            this._map.set(0, arr);
+
+
+        }
 
     }
 
