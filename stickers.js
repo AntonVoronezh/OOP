@@ -82,6 +82,11 @@
 
         }
 
+        _setZIndex() {
+
+            this._zIndex.set(this._num());
+
+        }
 
 
 
