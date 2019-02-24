@@ -85,7 +85,16 @@
 
         }
 
+        _for() {
 
+            this._map.forEach((elem, i) => {
+
+                console.log('_for', i, elem);
+
+
+            });
+
+        }
 
     }
 
