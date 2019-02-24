@@ -145,6 +145,16 @@
 
         }
 
+        getMin() {
+
+            const arr = this._for();
+
+            arr.length = arr.length - 1;
+
+            return Math.min(...arr);
+
+        }
+
 
 
 
