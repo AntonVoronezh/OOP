@@ -440,6 +440,17 @@
 
         }
 
+        _rightClick(argElem) {
+
+            argElem.addEventListener('contextmenu', () => {
+
+                event.preventDefault();
+
+                settings.notes.removeChild(argElem);
+
+            });
+
+        }
 
 
 
