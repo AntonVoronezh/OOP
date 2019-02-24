@@ -79,6 +79,11 @@
 
         }
 
+        _num() {
+
+            return this._map.size;
+
+        }
 
 
 
