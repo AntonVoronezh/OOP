@@ -4,19 +4,13 @@
 
         notes: document.querySelector('#stickers'),
         sticker: 'sticker',
-        sticker_settings: {
-            top: 0,
-            left: 0
-        }
+        storage_name: 'stick'
 
     };
-
 
     class Notes {
 
         constructor() {
-
-            this._objForElems = new Map;
 
             this._start();
 
@@ -24,67 +18,64 @@
 
         _start() {
 
-            const mapWork = new MapWork(this._objForElems);
+            const objForElems = new Map;
+
+            const mapWork = new MapWork(objForElems);
+
+            const zIndex = new ZIndex();
+
+            const storage = new Storage();
+
+            window.addEventListener('load', () => {
+
+                const history = storage.get();
+
+                const install = new Install(mapWork, zIndex, history);
+
+            });
 
             settings.notes.addEventListener('dblclick', () => {
 
-                // console.log('_start', event.pageX, event.pageY);
+                new Sticker(mapWork, zIndex, event.pageX, event.pageY);
 
-                const sticker = new Sticker(mapWork, event.pageX, event.pageY);
+            });
 
+            window.addEventListener('unload', () => {
+
+                const save = new Save(objForElems, zIndex, storage);
 
             });
 
         }
 
-
     }
 
     class MapWork {
 
-        constructor(argObjForElems) {
+        constructor(argObj) {
 
-            this._map = argObjForElems;
-
-            this._zIndex = new ZIndex(this._map);
-
-            // this._rightClick();
+            this._map = argObj;
 
         }
 
         console() {
 
-            console.log('_map.size', this._map.size);
-
-            console.log('_num', this._num());
-
-            console.log('_map', this._map);
-
-            console.log('getZIndex', this._zIndex.get());
-
+            // console.log('_map', this._map);
+            // console.log('_map.size', this.size());
 
         }
 
-        addInfo(argInfo) {
+        add(argStick) {
 
-            this._setZIndex();
-
-            this._setInfo(argInfo);
+            this._map.set(this._num(), argStick);
 
             this.console();
 
         }
 
+        size() {
 
-        _setInfo(argInfo) {
-
-            this._map.set(this._num(), argInfo);
-
-        }
-
-        _setZIndex() {
-
-            this._zIndex.set(this._num());
+            return this._num();
 
         }
 
@@ -94,64 +85,93 @@
 
         }
 
+        _for() {
+
+            this._map.forEach((elem, i) => {
+
+                console.log('_for', i, elem);
+
+
+            });
+
+        }
 
     }
 
-
-
     class ZIndex {
 
-        constructor(argMap) {
-
-            // this._stickMap = argMap;
+        constructor() {
 
             this._map = new Map;
 
-            // this._num = argNum;
+        }
 
-            // this._stickMap.set(100000, this._map);
+        console() {
 
-            this._map.set(0, []);
-
-            // this._stickMap.set(100000, this._map);
-
-            settings.stick_map = this;
-
-            // this._arr = this._map.get(0)
-
-            // this._setZIndex();  
-
+            // console.log('_z', this._map);
+            // console.log('_z.size', this.size());
 
         }
 
+        add() {
 
-        get() {
+            if (!this._map.has(this._num())) {
 
-            // const arr = this._map.get(0);
-            // this.set();
-
-            return this._map.get(0);
-
-
-        }
-
-        change(argElem) {
-
-            const arr = this._map.get(0);
-
-            let nextNum;
-
-            if (this._getMax(arr) !== Number(argElem.style.zIndex)) {
-
-                nextNum = this._getMax(arr) + 1;
-
-                argElem.style.zIndex = nextNum;
-
-                this.set(nextNum);
+                this._map.set(this._num(), [0]);
 
             }
 
-            // console.log('change', arr, argElem);
+            this.console();
+
+        }
+
+        change(argNum) {
+
+            this._map.set(argNum, [this._getNextNum(argNum)]);
+
+            return this._getNextNum(argNum);
+
+        }
+
+        size() {
+
+            return this._num();
+
+        }
+
+        getNum(argNum) {
+
+            return this._map.get(argNum);
+
+        }
+
+        getMin() {
+
+            const arr = this._for();
+
+            arr.length = arr.length - 1;
+
+            return Math.min(...arr);
+
+        }
+
+        _getNextNum(argNum) {
+
+            let [num] = this._for(argNum);
+
+            if (this._getMax(this._for()) === num) {
+
+                return this._getMax(this._for());
+
+            }
+
+            return this._getMax(this._for()) + 1;
+
+        }
+
+        _num() {
+
+            return this._map.size;
 
         }
 
@@ -161,57 +181,212 @@
 
         }
 
-        set(argNum) {
+        _for(arg) {
 
-            const arr = this.get();
+            const result = [];
 
-            let lastNum;
+            this._map.forEach((elem, i) => {
 
-            // console.log('arr.lenght', arr.length);
+                // console.log('_for', i, elem);
 
+                // if (elem[0] > 0) {
 
-            arr.length === 0 ? lastNum = 0 : lastNum = this._getMax(arr) + 1;
+                if (arg) {
 
-            arr.push(lastNum);
+                    if (arg === i)
 
-            arr[argNum] = lastNum;
+                        result.push(elem[0]);
 
-            this._map.delete(0);
+                } else {
 
-            this._map.set(0, arr);
+                    result.push(elem[0]);
 
+                }
+
+            });
+
+            return result;
 
         }
 
     }
 
-    //     let arr = [22,4,7, 0, -9];
-    //    console.log(Math.min(...arr));
+    class Storage {
+
+        get() {
+
+            const json = localStorage.getItem(settings.storage_name);
+
+            return JSON.parse(json);
+
+        }
+
+        set(argValue) {
+
+            const json = JSON.stringify(argValue);
+
+            localStorage.setItem(settings.storage_name, json);
+
+        }
+
+    }
+
+    class Save {
+
+        constructor(argMap, argZ, argStorage) {
+
+            this._map = argMap;
+
+            this._zIndex = argZ;
+
+            this._obj = [];
+
+            this._storage = argStorage;
+
+            this._check();
+
+        }
+
+        _check() {
+
+            console.log('_check', this._obj);
+
+            this._map.forEach((elem, i) => {
+
+                if (this._isReal(elem[1])) {
+
+                    let text = elem[1].value;
+
+                    let width = elem[1].style.width;
+
+                    let height = elem[1].style.height;
+
+                    let top = elem[1].style.top;
+
+                    let left = elem[1].style.left;
+
+                    let zIndex = this._zIndex.getNum(i);
+
+                    let minZIndex = this._zIndex.getMin();
+
+                    let zForSave = zIndex[0] - minZIndex;
+
+                    let item = this._map.get(i);
+
+                    // console.log('_check', item, i, text, width, height, top, left, zForSave);
+
+                    const obj = {};
+
+                    obj.elem = item;
+                    obj.text = text.trim();
+                    obj.width = width;
+                    obj.height = height;
+                    obj.top = top;
+                    obj.left = left;
+                    obj.zForSave = zForSave;
+
+                    this._obj.push(obj);
+
+                    this._save();
+
+                }
+
+            });
+
+        }
+
+        _save() {
+
+            this._storage.set(this._obj);
+
+        }
+
+        _isReal(argElem) {
+
+            return document.body.contains(argElem);
+
+        }
+
+    }
+
+    class Install {
+
+        constructor(argMap, argZ, argStorage) {
+
+            this._map = argMap;
+
+            this._zIndex = argZ;
+
+            this._history = argStorage;
+
+            this._start();
+
+        }
+
+        _start() {
+
+            console.log('_start');
+
+            this._history.forEach(elem => {
+
+                console.log(elem);
+
+                new Sticker(this._map, this._zIndex, 0, 0, elem);
+
+            });
+
+        }
+
+    }
 
     class Sticker {
 
-        constructor(argMap, argPageX, argPageY) {
+        constructor(argMap, argZ, argPageX, argPageY, argHistory) {
 
             this._map = argMap;
+
+            this._zIndex = argZ;
 
             this._pageX = argPageX;
 
             this._pageY = argPageY;
 
-            this._add();
-
-        }
-
-        _add() {
+            this._num = this._map.size();
 
             this._create();
 
-            const arr = this._makeArr();
+            if (argHistory) {
 
-            this._map.addInfo(arr);
+                this._history = argHistory;
+
+                this._install();
+
+            }
+
+            this._elem;
 
         }
 
+        _install() {
+
+            this._elem.value = this._history.text;
+            this._elem.style.width = this._history.width;
+            this._elem.style.height = this._history.height;
+            this._elem.style.top = this._history.top;
+            this._elem.style.left = this._history.left;
+            if (this._history.zForSave !== null) {
+                this._elem.style.zIndex = this._history.zForSave;
+            }
+
+        }
+
+        _add(argElem) {
+
+            this._map.add([this, argElem]);
+
+            this._zIndex.add();
+
+        }
 
         _create() {
 
@@ -231,16 +406,13 @@
 
             this._focus(elem);
 
-            this._blur(elem);
-
-
             settings.notes.appendChild(elem);
 
             elem.focus();
 
-            // console.log('_create', elem);
+            this._add(elem);
 
-
+            this._elem = elem;
 
         }
 
@@ -266,9 +438,6 @@
 
             });
 
-
-
-
         }
 
         _rightClick(argElem) {
@@ -276,8 +445,6 @@
             argElem.addEventListener('contextmenu', () => {
 
                 event.preventDefault();
-
-                // console.log(event.which);
 
                 settings.notes.removeChild(argElem);
 
@@ -289,49 +456,15 @@
 
             argElem.addEventListener('focus', () => {
 
-                settings.stick_map.change(argElem);
+                const index = this._zIndex.change(this._num);
 
-
-                // .change;
-
+                argElem.style.zIndex = index;
 
             });
 
         }
-
-        _blur(argElem) {
-
-            argElem.addEventListener('blur', () => {
-
-                console.log('_blur', argElem.value);
-                
-
-
-                // .change;
-
-
-            });
-
-        }
-
-
-        _makeArr() {
-
-            return [
-
-                this,
-                this._pageX,
-                this._pageY
-
-
-            ]
-
-
-        }
-
 
     }
-
 
     new Notes();
 
