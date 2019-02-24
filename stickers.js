@@ -367,6 +367,18 @@
 
         }
 
+        _install() {
+
+            this._elem.value = this._history.text;
+            this._elem.style.width = this._history.width;
+            this._elem.style.height = this._history.height;
+            this._elem.style.top = this._history.top;
+            this._elem.style.left = this._history.left;
+            if (this._history.zForSave !== null) {
+                this._elem.style.zIndex = this._history.zForSave;
+            }
+
+        }
 
 
 
