@@ -211,7 +211,17 @@
 
     }
 
+    class Storage {
 
+        get() {
+
+            const json = localStorage.getItem(settings.storage_name);
+
+            return JSON.parse(json);
+
+        }
+
+    }
 
 
 
