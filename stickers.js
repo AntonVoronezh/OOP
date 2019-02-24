@@ -301,7 +301,11 @@
 
         }
 
+        _isReal(argElem) {
 
+            return document.body.contains(argElem);
+
+        }
 
     }
 
