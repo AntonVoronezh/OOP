@@ -388,6 +388,33 @@
 
         }
 
+        _create() {
+
+            const elem = document.createElement('textarea');
+
+            elem.classList.add(settings.sticker);
+
+            elem.style.left = `${this._pageX}px`;
+
+            elem.style.top = `${this._pageY}px`;
+
+            elem.draggable = "true";
+
+            this._changePosition(elem);
+
+            this._rightClick(elem);
+
+            this._focus(elem);
+
+            settings.notes.appendChild(elem);
+
+            elem.focus();
+
+            this._add(elem);
+
+            this._elem = elem;
+
+        }
 
 
 
