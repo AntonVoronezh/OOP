@@ -139,6 +139,12 @@
 
         }
 
+        getNum(argNum) {
+
+            return this._map.get(argNum);
+
+        }
+
 
 
 
