@@ -58,6 +58,20 @@
 
         }
 
+        console() {
+
+            // console.log('_map', this._map);
+            // console.log('_map.size', this.size());
+
+        }
+
+        add(argStick) {
+
+            this._map.set(this._num(), argStick);
+
+            this.console();
+
+        }
 
 
 
