@@ -309,7 +309,23 @@
 
     }
 
+    class Install {
 
+        constructor(argMap, argZ, argStorage) {
+
+            this._map = argMap;
+
+            this._zIndex = argZ;
+
+            this._history = argStorage;
+
+            this._start();
+
+        }
+
+
+
+    }
 
    
 
