@@ -98,6 +98,29 @@
 
     }
 
+    class ZIndex {
+
+        constructor() {
+
+            this._map = new Map;
+
+        }
+
+        console() {
+
+            // console.log('_z', this._map);
+            // console.log('_z.size', this.size());
+
+        }
+
+
+
+
+
+
+
+
+    }
 
 
 
