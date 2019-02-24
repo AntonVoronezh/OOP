@@ -231,6 +231,27 @@
 
     }
 
+    class Save {
+
+        constructor(argMap, argZ, argStorage) {
+
+            this._map = argMap;
+
+            this._zIndex = argZ;
+
+            this._obj = [];
+
+            this._storage = argStorage;
+
+            this._check();
+
+        }
+
+
+
+
+
+    }
 
 
 
