@@ -181,7 +181,33 @@
 
         }
 
+        _for(arg) {
 
+            const result = [];
+
+            this._map.forEach((elem, i) => {
+
+                // console.log('_for', i, elem);
+
+                // if (elem[0] > 0) {
+
+                if (arg) {
+
+                    if (arg === i)
+
+                        result.push(elem[0]);
+
+                } else {
+
+                    result.push(elem[0]);
+
+                }
+
+            });
+
+            return result;
+
+        }
 
     }
 
