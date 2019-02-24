@@ -339,7 +339,43 @@
 
     }
 
-   
+    class Sticker {
+
+        constructor(argMap, argZ, argPageX, argPageY, argHistory) {
+
+            this._map = argMap;
+
+            this._zIndex = argZ;
+
+            this._pageX = argPageX;
+
+            this._pageY = argPageY;
+
+            this._num = this._map.size();
+
+            this._create();
+
+            if (argHistory) {
+
+                this._history = argHistory;
+
+                this._install();
+
+            }
+
+            this._elem;
+
+        }
+
+
+
+
+
+
+
+
+
+    }
 
     new Notes();
 
