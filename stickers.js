@@ -323,7 +323,19 @@
 
         }
 
+        _start() {
 
+            console.log('_start');
+
+            this._history.forEach(elem => {
+
+                console.log(elem);
+
+                new Sticker(this._map, this._zIndex, 0, 0, elem);
+
+            });
+
+        }
 
     }
 
