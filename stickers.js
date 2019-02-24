@@ -295,6 +295,11 @@
 
         }
 
+        _save() {
+
+            this._storage.set(this._obj);
+
+        }
 
 
 
