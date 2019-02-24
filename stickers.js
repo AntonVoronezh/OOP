@@ -380,6 +380,13 @@
 
         }
 
+        _add(argElem) {
+
+            this._map.add([this, argElem]);
+
+            this._zIndex.add();
+
+        }
 
 
 
