@@ -428,6 +428,15 @@
 
             });
 
+            argElem.addEventListener('dragend', () => {
+
+                argElem.style.top = `${event.pageY - offsetY}px`;
+
+                argElem.style.left = `${event.pageX - offsetX}px`;
+
+                argElem.blur();
+
+            });
 
         }
 
