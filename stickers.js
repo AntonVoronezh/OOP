@@ -50,6 +50,20 @@
 
     }
 
+    class MapWork {
+
+        constructor(argObj) {
+
+            this._map = argObj;
+
+        }
+
+
+
+
+
+    }
+
 
 
 
