@@ -452,7 +452,17 @@
 
         }
 
+        _focus(argElem) {
 
+            argElem.addEventListener('focus', () => {
+
+                const index = this._zIndex.change(this._num);
+
+                argElem.style.zIndex = index;
+
+            });
+
+        }
 
     }
 
