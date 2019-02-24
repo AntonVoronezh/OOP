@@ -125,6 +125,13 @@
 
         }
 
+        change(argNum) {
+
+            this._map.set(argNum, [this._getNextNum(argNum)]);
+
+            return this._getNextNum(argNum);
+
+        }
 
 
 
