@@ -155,6 +155,19 @@
 
         }
 
+        _getNextNum(argNum) {
+
+            let [num] = this._for(argNum);
+
+            if (this._getMax(this._for()) === num) {
+
+                return this._getMax(this._for());
+
+            }
+
+            return this._getMax(this._for()) + 1;
+
+        }
 
 
 
