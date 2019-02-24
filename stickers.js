@@ -133,6 +133,12 @@
 
         }
 
+        size() {
+
+            return this._num();
+
+        }
+
 
 
 
