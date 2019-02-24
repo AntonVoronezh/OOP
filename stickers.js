@@ -221,6 +221,14 @@
 
         }
 
+        set(argValue) {
+
+            const json = JSON.stringify(argValue);
+
+            localStorage.setItem(settings.storage_name, json);
+
+        }
+
     }
 
 
