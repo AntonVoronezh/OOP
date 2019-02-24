@@ -113,6 +113,17 @@
 
         }
 
+        add() {
+
+            if (!this._map.has(this._num())) {
+
+                this._map.set(this._num(), [0]);
+
+            }
+
+            this.console();
+
+        }
 
 
 
