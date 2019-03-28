@@ -17,6 +17,9 @@ class Dropdown {
             }
         })
 
+        const itemsHTML = this.items.map(i => {
+            return `<li data-id="${i.id}">${i.label}</li>`;
+        }).join('');
 
     }
 
