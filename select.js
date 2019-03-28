@@ -30,7 +30,9 @@ class Dropdown {
         this.close();
     }
 
-
+    open() {
+        this.$el.classList.add('open');
+    }
 
 
 };
