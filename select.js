@@ -21,6 +21,7 @@ class Dropdown {
             return `<li data-id="${i.id}">${i.label}</li>`;
         }).join('');
 
+        this.$el.querySelector('.dropdown__menu').insertAdjacentHTML('afterbegin', itemsHTML);
     }
 
 
