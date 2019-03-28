@@ -11,6 +11,10 @@ class Dropdown {
                 } else {
                     this.open();
                 }
+            } else if (event.target.tagName.toLowerCase() === 'li') {
+                this.select(event.target.dataset.id);
+
+            }
         })
 
 
