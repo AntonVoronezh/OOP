@@ -1,3 +1,17 @@
+class Dropdown {
+    constructor(selector, options) {
+        this.$el = document.querySelector(selector);
+
+
+
+    }
+
+
+
+
+
+
+};
 
 const dropdown = new Dropdown('#dropdown', {
     items: [{
