@@ -4,7 +4,10 @@ class Dropdown {
         this.items = options.items;
         this.$el.querySelector('.dropdown__label').textContent = this.items[0].label;
 
-
+[        this.$el.addEventListener('click', event => {
+            if (event.target.classList.contains('dropdown__label')) {
+        })
+]
 
     }
 
