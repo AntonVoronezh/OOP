@@ -34,7 +34,9 @@ class Dropdown {
         this.$el.classList.add('open');
     }
 
-
+    close() {
+        this.$el.classList.remove('open');
+    }
 };
 
 const dropdown = new Dropdown('#dropdown', {
