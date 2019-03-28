@@ -24,7 +24,10 @@ class Dropdown {
         this.$el.querySelector('.dropdown__menu').insertAdjacentHTML('afterbegin', itemsHTML);
     }
 
-
+    select(id) {
+        const item = this.items.find(i => i.id === id);
+  
+    }
 
 
 
