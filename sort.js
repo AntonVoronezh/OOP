@@ -40,6 +40,11 @@
 				new Chunk(this._settings);
 			});
 
+			buttonBig.addEventListener('click', () => {
+				new Clean(parent);
+				new Draw(bigDataPath, this._settings);
+				new Sort(this._settings);
+			});
 		}
 	}
 
