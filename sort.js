@@ -65,6 +65,9 @@
 
 		_make() {
 			let elem = document.createElement(this._name);
+			if (this._secondArg && this._name === 'button') {
+				elem.innerHTML = this._secondArg;
+			}
 			return elem;
 		}
 	}
