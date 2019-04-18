@@ -59,6 +59,8 @@
 	class CreateElement {
 		constructor(name, secondArg) {
 			this._name = name;
+			this._secondArg = secondArg;
+			this._elem = this._make();
 		}
 
 	}
