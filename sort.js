@@ -64,6 +64,7 @@
 		}
 
 		_make() {
+			let elem = document.createElement(this._name);
 			return elem;
 		}
 	}
