@@ -19,6 +19,13 @@
 		chunkSize: 50,
 	};
 
+	class Init {
+		constructor(settings) {
+			this._settings = settings;
+			this._start();
+		}
+
+	}
 
 
 
