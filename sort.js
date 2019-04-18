@@ -25,6 +25,14 @@
 			this._start();
 		}
 
+		_start() {
+			const { elem: parent, bigDataPath, smallDataPath } = this._settings;
+
+			const buttonSmall = new CreateElement('button', 'Мало данных').get();
+			const buttonBig = new CreateElement('button', 'Много данных').get();
+
+
+		}
 	}
 
 
