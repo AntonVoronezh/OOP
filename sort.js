@@ -56,6 +56,9 @@
 
 
 
+	class CreateElement {
+
+	}
 
 	new Init(settings);
 })();
