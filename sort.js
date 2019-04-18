@@ -35,6 +35,9 @@
 				new Clean(parent);
 				new Draw(smallDataPath, this._settings);
 				new Sort(this._settings);
+				new AddOptionally(this._settings);
+				new Search(this._settings);
+				new Chunk(this._settings);
 			});
 
 		}
