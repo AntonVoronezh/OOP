@@ -31,6 +31,11 @@
 			const buttonSmall = new CreateElement('button', 'Мало данных').get();
 			const buttonBig = new CreateElement('button', 'Много данных').get();
 
+			buttonSmall.addEventListener('click', () => {
+				new Clean(parent);
+				new Draw(smallDataPath, this._settings);
+				new Sort(this._settings);
+			});
 
 		}
 	}
