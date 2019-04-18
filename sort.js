@@ -48,6 +48,9 @@
 				new Search(this._settings);
 				new Chunk(this._settings);
 			});
+
+			parent.appendChild(buttonSmall);
+			parent.appendChild(buttonBig);
 		}
 	}
 
