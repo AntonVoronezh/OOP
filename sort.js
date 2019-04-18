@@ -70,6 +70,8 @@
 			}
 			return elem;
 		}
+
+		get = () => this._elem;
 	}
 
 	new Init(settings);
