@@ -63,6 +63,9 @@
 			this._elem = this._make();
 		}
 
+		_make() {
+			return elem;
+		}
 	}
 
 	new Init(settings);
