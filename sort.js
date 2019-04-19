@@ -59,7 +59,21 @@
 	
 
 	class Draw {
-		
+		constructor(dataPath, settings) {
+			this._table = new CreateElement('table', '').get();
+			this._table.classList.add('table_sort');
+			this._thead = new CreateElement('thead', '').get();
+			this._table.appendChild(this._thead);
+			this._tbody = new CreateElement('tbody', '').get();
+			this._table.appendChild(this._tbody);
+
+			settings.table = this._table;
+			this._parent = settings.elem;
+			this._info = settings.info;
+			this._makeTable();
+			this._makePreloader();
+			this._data = new getData(dataPath, settings);
+		}
 
 		_makeTable() {
 			const obj = {};
