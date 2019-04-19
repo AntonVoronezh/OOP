@@ -58,6 +58,13 @@
 
 	
 
+	class Draw {
+		
+
+		_makePreloader() {
+			new Preloader(settings);
+		}
+	}
 
 	class Preloader {
 		constructor(settings) {
