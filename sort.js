@@ -60,7 +60,14 @@
 
 
 	class Preloader {
+		constructor(settings) {
+			this._isLoading = settings.isLoading;
+			this._loadElem = settings.load;
+			this._parent = settings.elemPreloader;
+			settings.isLoading = !this._isLoading;
 
+			this._toggle();
+		}
 
 		_toggle() {
 			!this._isLoading ? (this._parent.innerHTML = this._loadElem) : (this._parent.innerHTML = '');
