@@ -59,6 +59,13 @@
 	
 
 
+	class Preloader {
+
+
+		_toggle() {
+			!this._isLoading ? (this._parent.innerHTML = this._loadElem) : (this._parent.innerHTML = '');
+		}
+	}
 
 
 
