@@ -134,6 +134,22 @@
 		}
 	}
 
+	class Draw {
+		constructor(dataPath, settings) {
+			this._table = new CreateElement('table', '').get();
+			this._table.classList.add('table_sort');
+			this._thead = new CreateElement('thead', '').get();
+			this._table.appendChild(this._thead);
+
+
+		}
+
+
+
+
+
+
+	}
 
 	class Preloader {
 		constructor(settings) {
