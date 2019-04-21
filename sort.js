@@ -104,6 +104,17 @@
 		}
 	}
 
+	class Sort {
+		constructor({ table }) {
+			this._table = table;
+			console.log('Sort', table);
+			this._sort();
+		}
+
+
+
+
+	}
 
 
 	class Preloader {
