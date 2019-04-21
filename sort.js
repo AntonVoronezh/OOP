@@ -90,7 +90,13 @@
 			this._option();
 		}
 
+		_option() {
+			this._table.querySelector('tbody').addEventListener('click', event => {
+				const elems = event.path[1].querySelectorAll('td');
+				let result = '';
 
+				elems.forEach(elem => {
+	
 		}
 	}
 
