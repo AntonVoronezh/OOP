@@ -56,7 +56,17 @@
 
 
 
+	class Search {
+		constructor({ table, elemSearch }) {
+			this._table = table;
+			this._elem = elemSearch;
 
+			this._search();
+		}
+
+
+		}
+	}
 
 
 
