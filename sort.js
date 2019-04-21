@@ -128,7 +128,9 @@
 				tBody.append(...[...tBody.rows].sort(comparator(index, order)));
 			}
 
-
+			for (let cell of target.parentNode.cells) {
+				cell.classList.toggle('sorted', cell === target);
+			}
 		}
 	}
 
