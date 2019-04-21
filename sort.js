@@ -157,7 +157,9 @@
 				obj[this._info[key]] = `${this._info[key]} `;
 			}
 
-
+			new CreateRow(obj, this._thead, this._info, true);
+			this._parent.appendChild(this._table);
+		}
 
 
 	}
