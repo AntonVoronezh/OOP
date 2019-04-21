@@ -124,7 +124,9 @@
 			const comparator = (index, order) => (a, b) =>
 				order * collator.compare(a.children[index].innerHTML, b.children[index].innerHTML);
 
-
+			for (let tBody of target.closest('table').tBodies) {
+				tBody.append(...[...tBody.rows].sort(comparator(index, order)));
+			}
 
 
 		}
