@@ -64,7 +64,16 @@
 			this._search();
 		}
 
+		_search() {
+			const [text, button] = this._elem.querySelectorAll('input');
 
+			button.addEventListener('click', () => {
+				const tbody = this._table.querySelector('tbody');
+				const tr = tbody.querySelectorAll('tr');
+				// console.log('_search', tbody);
+
+
+			});
 		}
 	}
 
