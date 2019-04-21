@@ -111,7 +111,11 @@
 			this._sort();
 		}
 
-
+		_sort() {
+			this._table.querySelector('thead').addEventListener('click', event => {
+				this._getSort(event);
+			});
+		}
 
 
 	}
