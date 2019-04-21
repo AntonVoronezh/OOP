@@ -140,7 +140,11 @@
 			this._table.classList.add('table_sort');
 			this._thead = new CreateElement('thead', '').get();
 			this._table.appendChild(this._thead);
+			this._tbody = new CreateElement('tbody', '').get();
+			this._table.appendChild(this._tbody);
 
+			settings.table = this._table;
+			this._parent = settings.elem;
 
 		}
 
