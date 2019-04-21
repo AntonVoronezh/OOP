@@ -81,7 +81,18 @@
 		}
 	}
 
+	class AddOptionally {
+		constructor({ table, infoRus, elemOptionally }) {
+			this._table = table;
+			this._infoRus = infoRus;
+			this._elem = elemOptionally;
 
+			this._option();
+		}
+
+
+		}
+	}
 
 
 
