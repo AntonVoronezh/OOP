@@ -151,7 +151,11 @@
 			this._data = new getData(dataPath, settings);
 		}
 
-
+		_makeTable() {
+			const obj = {};
+			for (let key in this._info) {
+				obj[this._info[key]] = `${this._info[key]} `;
+			}
 
 
 
