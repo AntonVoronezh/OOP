@@ -96,7 +96,11 @@
 				let result = '';
 
 				elems.forEach(elem => {
-	
+					result += `<i>${this._infoRus[elem.dataset.name]}</i> <b>${elem.innerHTML}</b><br>`;
+				});
+
+				this._elem.innerHTML = result;
+			});
 		}
 	}
 
