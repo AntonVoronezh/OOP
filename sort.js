@@ -72,7 +72,11 @@
 				const tr = tbody.querySelectorAll('tr');
 				// console.log('_search', tbody);
 
-
+				tr.forEach(elem => {
+					if (elem.innerText.toLowerCase().indexOf(text.value) === -1) {
+						elem.classList.add('hide');
+					}
+				});
 			});
 		}
 	}
