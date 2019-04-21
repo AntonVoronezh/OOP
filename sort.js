@@ -145,7 +145,10 @@
 
 			settings.table = this._table;
 			this._parent = settings.elem;
-
+			this._info = settings.info;
+			this._makeTable();
+			this._makePreloader();
+			this._data = new getData(dataPath, settings);
 		}
 
 
