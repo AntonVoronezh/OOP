@@ -161,7 +161,9 @@
 			this._parent.appendChild(this._table);
 		}
 
-
+		_makePreloader() {
+			new Preloader(settings);
+		}
 	}
 
 	class Preloader {
